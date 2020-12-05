@@ -1,0 +1,24 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Games View{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Games list</h3>
+    <a href="{{ url_for('admin.addGame') }}" class="button is-primary">Add New +</a>
+
+    <div class="section columns">
+        <div class="column is-one-third">
+            {% for game in games %}
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-header-title has-text-centered">{{ game.title }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('admin.editGame', gameId = game.gameId) }}" class="card-footer-item">Edit</a>
+                    <a href="{{ url_for('admin.deleteGame', gameId = game.gameId) }}" class="card-footer-item">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

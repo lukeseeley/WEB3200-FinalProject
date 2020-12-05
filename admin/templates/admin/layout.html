@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head%}
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {% endblock %}
+</head>
+<body>
+    <header class="">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <h1 class="title">Media Library</h1>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a href="/admin/" class="navbar-item">
+                        Admin Home
+                    </a>
+                    <a href="/admin/games" class="navbar-item">
+                        Games
+                    </a>
+                    <a href="/admin/movies" class="navbar-item">
+                        Movies
+                    </a>
+                    <a href="/admin/employees" class="navbar-item">
+                        Employees
+                    </a>
+                    <a href="/" class="navbar-item">
+                        Return Home
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <a href="/admin/logout" class="navbar-item">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="section" id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

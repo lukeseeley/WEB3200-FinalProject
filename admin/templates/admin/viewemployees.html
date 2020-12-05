@@ -1,0 +1,24 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Employees View{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Employees list</h3>
+    <a href="{{ url_for('admin.addEmployee') }}" class="button is-primary">Add New +</a>
+
+    <div class="section columns">
+        <div class="column is-one-third">
+            {% for employee in employees %}
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-header-title has-text-centered">{{ employee.firstname }} {{ employee.lastname }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('admin.editEmployee', employeeId = employee.employeeId) }}" class="card-footer-item">Edit</a>
+                    <a href="{{ url_for('admin.deleteEmployee', employeeId = employee.employeeId) }}" class="card-footer-item">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

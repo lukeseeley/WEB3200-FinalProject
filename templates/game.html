@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}{{ game.title }}{% endblock title %}
+
+{% block content %}
+    <h3 class="title">{{ game.title }}</h3>
+    <h4 class="subtitle">Published by {{ game.publisher }} and developed by {{ game.developer }}</h4>
+
+    <p>{{ game.description }}</p><br>
+
+    <a href="/games" class="button is-link">Go Back</a>
+
+{% endblock content %}

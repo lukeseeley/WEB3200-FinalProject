@@ -1,0 +1,63 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Employee Editing Form{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Employee Form</h3>
+    {% if employee %}
+        <h4 class="subtitle">Edit Employee</h4>
+        <form method="POST">
+            <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                    <input type="text" name="firstname" class="input" id="" value="{{employee.firstname}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                    <input type="text" name="lastname" class="input" id="" value="{{employee.lastname}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Job Title</label>
+                <div class="control">
+                    <input type="text" name="jobtitle" class="input" id="" value="{{employee.jobtitle}}">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Save" class="button is-primary"></button>
+                    <a href="{{ url_for('admin.viewEmployees') }}" class="button is-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    {% else %}
+        <h4 class="subtitle">New Employee</h4>
+        <form method="POST">
+            <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                    <input type="text" name="firstname" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                    <input type="text" name="lastname" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Job Title</label>
+                <div class="control">
+                    <input type="text" name="jobtitle" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Save" class="button is-primary"></button>
+                    <a href="{{ url_for('admin.viewEmployees') }}" class="button is-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %}Games Library{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Games Library</h3>
+    <ul>
+        {% for game in games %}
+            <li><a href="{{ url_for('game', gameId = game.gameId) }}">{{ game.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

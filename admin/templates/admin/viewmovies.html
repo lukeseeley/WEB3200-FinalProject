@@ -1,0 +1,24 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Movies View{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Movies list</h3>
+    <a href="{{ url_for('admin.addMovie') }}" class="button is-primary">Add New +</a>
+
+    <div class="section columns">
+        <div class="column is-one-third">
+            {% for movie in movies %}
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-header-title has-text-centered">{{ movie.title }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('admin.editMovie', movieId = movie.movieId) }}" class="card-footer-item">Edit</a>
+                    <a href="{{ url_for('admin.deleteMovie', movieId = movie.movieId) }}" class="card-footer-item">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

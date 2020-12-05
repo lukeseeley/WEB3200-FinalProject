@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}{{ movie.title }}{% endblock title %}
+
+{% block content %}
+    <h3 class="title">{{ movie.title }}</h3>
+
+    <p> <b>Directed by:</b> {{ movie.director }}</p>
+    <p> <b>Actors:</b> {{ movie.actors }}</p><br>
+    <p>{{ movie.description }}</p><br>
+
+    <a href="/movies" class="button is-link">Go Back</a>
+
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Movie Editing Form{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Movie Form</h3>
+    {% if movie %}
+        <h4 class="subtitle">Edit Movie</h4>
+        <form method="POST">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input type="text" name="title" class="input" id="" value="{{movie.title}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Director</label>
+                <div class="control">
+                    <input type="text" name="director" class="input" id="" value="{{movie.director}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Actors</label>
+                <div class="control">
+                    <input type="text" name="actors" class="input" id="" value="{{movie.actors}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" class="textarea" id="">{{movie.description}}</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Save" class="button is-primary"></button>
+                    <a href="{{ url_for('admin.viewMovies') }}" class="button is-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    {% else %}
+        <h4 class="subtitle">New Movie</h4>
+        <form method="POST">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input type="text" name="title" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Director</label>
+                <div class="control">
+                    <input type="text" name="director" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Actors</label>
+                <div class="control">
+                    <input type="text" name="actors" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" class="textarea" id=""></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Save" class="button is-primary"></button>
+                    <a href="{{ url_for('admin.viewMovies') }}" class="button is-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+{% endblock content %}

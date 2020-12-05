@@ -1,0 +1,29 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Login{% endblock title %}
+
+{% block content %}
+<h3 class="title">Admin Login Page</h3>
+
+{% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+{% endfor %}
+    <form method="POST">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+                <input type="text" name="username" class="input" id="">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+                <input type="password" name="password" class="input" id="">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <input type="submit" value="Login" class="button is-link"></button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Delete Confirmation{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Delete Confirmation</h3>
+
+    <form method="POST">
+        <div class="field">
+            <label class="label">Are you sure you want to delete {{ target }} from the {{ listType }} list?</label>
+            <div class="control">
+                <input type="submit" value="Delete" class="button is-danger"></button>
+                <a href="{{ url_for('admin.view' + listType + 's') }}" class="button">Cancel</a>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

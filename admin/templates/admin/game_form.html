@@ -1,0 +1,75 @@
+{% extends 'admin/layout.html' %}
+{% block title %}Admin - Game Editing Form{% endblock title %}
+
+{% block content %}
+    <h3 class="title">Game Form</h3>
+    {% if game %}
+        <h4 class="subtitle">Edit Game</h4>
+        <form method="POST">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input type="text" name="title" class="input" id="" value="{{game.title}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Publisher</label>
+                <div class="control">
+                    <input type="text" name="publisher" class="input" id="" value="{{game.publisher}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Developer</label>
+                <div class="control">
+                    <input type="text" name="developer" class="input" id="" value="{{game.developer}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" class="textarea" id="">{{game.description}}</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Save" class="button is-primary"></button>
+                    <a href="{{ url_for('admin.viewGames') }}" class="button is-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    {% else %}
+        <h4 class="subtitle">New Game</h4>
+        <form method="POST">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input type="text" name="title" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Publisher</label>
+                <div class="control">
+                    <input type="text" name="publisher" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Developer</label>
+                <div class="control">
+                    <input type="text" name="developer" class="input" id="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" class="textarea" id=""></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Save" class="button is-primary"></button>
+                    <a href="{{ url_for('admin.viewGames') }}" class="button is-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+{% endblock content %}
